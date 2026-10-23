@@ -3,10 +3,10 @@
 **Sistem Informasi Pengelolaan Inventaris Barang Jurusan**
 
 ## Identitas
-Nama    : Massayu Adinda Meilani
-Kelas   : 3IB
-Matkul  : Pemrograman Web
-Dosen   : Agus Setiawan,M.Kom.
+- Nama    : Massayu Adinda Meilani
+- Kelas   : 3IB
+- Matkul  : Pemrograman Web
+- Dosen   : Agus Setiawan,M.Kom.
 
 Praktikum Pemrograman Web – D3 Manajemen Informatika, POLSRI.
 
