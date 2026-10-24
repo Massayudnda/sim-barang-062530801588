@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  padding: 16px;
+}
+/* ===== HEADER ===== */
+header {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+header p {
+  font-size: 14px;
+}
+
+/* ===== NAVIGASI (Flexbox) ===== */
+nav {
+  display: flex;
+  flex-direction: column;   /* HP: menu menurun */
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+nav a {
+  background-color: #e0e7ff;
+  color: #1e3a8a;
+  text-decoration: none;
+  padding: 10px 14px;
+  border: 1px solid #1e3a8a;
+  border-radius: 6px;
+  text-align: center;
+}
+
+nav a:hover {
+  background-color: #1e3a8a;
+  color: white;
+}
+/* ===== SECTION ===== */
+section {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+section h2 {
+  margin-bottom: 12px;
+  color: #1e3a8a;
+}
+
+/* ===== TABEL ===== */
+.tabel-wrap {
+  overflow-x: auto;   /* HP: tabel bisa digeser menyamping */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #cbd5e1;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #1e3a8a;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f1f5f9;
+}
+
+/* ===== FORM (Grid) ===== */
+form {
+  display: grid;
+  grid-template-columns: 1fr;   /* HP: 1 kolom */
+  gap: 12px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, select {
+  padding: 8px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+/* ===== TABLET (600px - 1024px) ===== */
+@media (min-width: 600px) {
+  nav {
+    flex-direction: row;          /* menu jadi menyamping */
+  }
+
+  nav a {
+    flex: 1;                      /* tiap menu sama lebar */
+  }
+
+  form {
+    grid-template-columns: 1fr 1fr;   /* form jadi 2 kolom */
+  }
+
+  form button {
+    grid-column: 1 / -1;          /* tombol selebar 2 kolom */
+  }
+}
+
+/* ===== DESKTOP (> 1024px) ===== */
+@media (min-width: 1025px) {
+  body {
+    max-width: 1100px;
+    margin: 0 auto;               /* konten di tengah */
+  }
+
+  form {
+    grid-template-columns: repeat(3, 1fr);   /* form jadi 3 kolom */
+  }
+}
