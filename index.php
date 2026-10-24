@@ -6,6 +6,17 @@ if (!isset($_SESSION["user"])) {
     header("Location: login.php");
     exit;
 }
+
+// ===== Ambil data barang dari database =====
+require_once "koneksi.php";
+
+$stmt = $pdo->query(
+    "SELECT b.kode, b.nama, k.nama_kategori, b.jumlah, b.kondisi
+     FROM barang b
+     JOIN kategori k ON b.kategori_id = k.id
+     ORDER BY b.id"
+);
+$daftarBarang = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -42,43 +53,17 @@ if (!isset($_SESSION["user"])) {
             <th>Kondisi</th>
           </tr>
         </thead>
-        <tbody>
+       <tbody>
+        <?php foreach ($daftarBarang as $row): ?>
           <tr>
-            <td>BRG-001</td>
-            <td>Proyektor</td>
-            <td>Elektronik</td>
-            <td>5</td>
-            <td>Baik</td>
+            <td><?= htmlspecialchars($row["kode"]) ?></td>
+            <td><?= htmlspecialchars($row["nama"]) ?></td>
+            <td><?= htmlspecialchars($row["nama_kategori"]) ?></td>
+            <td><?= $row["jumlah"] ?></td>
+            <td><?= htmlspecialchars($row["kondisi"]) ?></td>
           </tr>
-          <tr>
-            <td>BRG-002</td>
-            <td>Meja Lab</td>
-            <td>Furnitur</td>
-            <td>20</td>
-            <td>Baik</td>
-          </tr>
-          <tr>
-            <td>BRG-003</td>
-            <td>Komputer</td>
-            <td>Elektronik</td>
-            <td>24</td>
-            <td>Baik</td>
-          </tr>
-          <tr>
-            <td>BRG-004</td>
-            <td>AC</td>
-            <td>Elektronik</td>
-            <td>15</td>
-            <td>Baik</td>
-          </tr>
-          <tr>
-            <td>BRG-005</td>
-            <td>Kursi</td>
-            <td>Furnitur</td>
-            <td>20</td>
-            <td>Baik</td>
-          </tr>
-        </tbody>
+        <?php endforeach; ?>
+      </tbody>
       </table>
       </div>
     </section>
